@@ -2,7 +2,7 @@
 
 let username = prompt("Enter your username: ");
 if (username) {
-  var socket = new WebSocket(process.env.SERVER_URL);
+  var socket = new WebSocket("wss://chatapp-backend-ayanliaqat.koyeb.app/");
   main();
 }
 
