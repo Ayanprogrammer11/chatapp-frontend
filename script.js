@@ -2,7 +2,7 @@
 
 let username = prompt("Enter your username: ");
 if (username) {
-  var socket = new WebSocket("ws://localhost:3000");
+  var socket = new WebSocket(process.env.SERVER_URL);
   main();
 }
 
@@ -39,6 +39,7 @@ function sendMessage() {
   const chatInput = document.getElementById("message-input");
   const message = JSON.stringify({ text: chatInput.value });
   socket.send(message);
+  chatInput.value = "";
 }
 
 function displayToast(data, event) {
