@@ -1,0 +1,116 @@
+/* Global styles */
+body {
+  font-family: Arial, sans-serif;
+  margin: 0;
+  padding: 20px;
+  background-color: #f2f2f2;
+}
+
+/* Chat window styles */
+#chat-window {
+  max-width: 600px;
+  margin: 0 auto;
+  background-color: #fff;
+  border-radius: 8px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  padding: 20px;
+}
+
+#chat-messages {
+  max-height: 300px;
+  overflow-y: auto;
+}
+
+.user-message,
+.other-message {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+/* Styling for user messages */
+.user-message {
+  background-color: #4caf50;
+  color: #fff;
+  border-radius: 15px;
+  padding: 10px 15px;
+  margin-bottom: 10px;
+}
+
+/* Styling for other users' messages */
+.other-message {
+  background-color: #cfe2f3;
+  color: #000;
+  border-radius: 15px;
+  padding: 10px 15px;
+  margin-bottom: 10px;
+  align-self: flex-start;
+}
+
+/* Input container styles */
+#input-container {
+  margin-bottom: 40px;
+  display: flex;
+  margin-top: 20px;
+}
+
+/* Input styles */
+#message-input {
+  flex: 1;
+  padding: 10px;
+  border-radius: 5px;
+  border: 1px solid #ccc;
+  font-size: 16px;
+  margin-right: 10px;
+}
+
+/* Send button styles */
+#send-button {
+  padding: 10px 20px;
+  border: none;
+  border-radius: 5px;
+  background-color: #4caf50;
+  color: #fff;
+  font-size: 16px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+#send-button:hover {
+  background-color: #45a049;
+}
+
+/* Delete button styles */
+.delete-button {
+  background-color: #ff6347;
+  color: #fff;
+  border: none;
+  border-radius: 5px;
+  padding: 5px 10px;
+  cursor: pointer;
+}
+
+/* Toast */
+
+.toast-container {
+  position: fixed;
+  left: 50%;
+  transform: translateX(-50%);
+  background: rgba(76, 175, 80, 0.8);
+  padding: 5px;
+  border-radius: 10px;
+  pointer-events: none;
+  opacity: 0;
+  transition: all 1s;
+}
+
+.toast-container.active {
+  /* Initial State */
+  pointer-events: all;
+  opacity: 1;
+  transition: all 1s;
+}
+
+.toast-message {
+  color: white;
+  font-weight: 800;
+}
