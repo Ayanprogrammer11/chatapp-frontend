@@ -84,6 +84,14 @@ function main() {
       console.log(data);
       const clientNum = document.querySelector(".numClients");
       clientNum.innerText = `${data.text} user(s) online`;
+
+      const clientsNames = document.querySelector(".clients-names");
+
+      const usernamesInParentheses = `(${data.users
+        .map((user) => user.username)
+        .join(", ")})`;
+
+      clientsNames.innerText = usernamesInParentheses;
     }
   };
 
