@@ -42,6 +42,8 @@ function sendMessage() {
   chatInput.value = "";
 }
 
+document.getElementById("send-button").addEventListener("click", sendMessage);
+
 function displayToast(data, event) {
   const toastContainer = document.querySelector(".toast-container");
   const toastMessage = document.createElement("p");
