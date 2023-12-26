@@ -73,7 +73,6 @@ function main() {
   socket.onmessage = (event) => {
     const data = JSON.parse(event.data);
     if (data.type === "join-user") {
-      // TODO: Display toast vnotification
       displayToast(data, data.type);
     } else if (data.type === "left-user") {
       displayToast(data, data.type);
