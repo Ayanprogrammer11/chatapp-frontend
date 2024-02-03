@@ -6,13 +6,21 @@ if (username) {
   main();
 }
 
-function displayMessage(message, sender, timestamp) {
-  const messageContainer = document.getElementById("chat-messages");
+const validateMessage = function(message) {
+  if(message.trim().split(' ').length > 2000) return false;
+  if(message.length > 5000) return false;
+  return true;
+}
+
+function displayMessage(message, sender) {
+  // TODO: Implement user-side message
+  if(!validateMessage(message)) return;
+  const messageContainer = document.querySelector(".chat-messages");
   const messageEl = document.createElement("div");
   const deleteButton = document.createElement("button");
   const user = username.toLowerCase();
 
-  messageEl.innerText = `${sender}: ${message}`;
+  messageEl.innerHTML = `<p><span>${sender}:</span> ${message}</p>`;
   messageEl.classList.add("message");
 
   if (sender.toLowerCase() === user) {
@@ -35,14 +43,15 @@ function displayMessage(message, sender, timestamp) {
   messageContainer.appendChild(messageEl);
 }
 
-function sendMessage() {
+function sendMessage(e) {
+  e.preventDefault();
   const chatInput = document.getElementById("message-input");
   const message = JSON.stringify({ text: chatInput.value });
   socket.send(message);
   chatInput.value = "";
 }
 
-document.getElementById("send-button").addEventListener("click", sendMessage);
+document.getElementsByTagName("form")[0].addEventListener("submit", sendMessage);
 
 function displayToast(data, event) {
   const toastContainer = document.querySelector(".toast-container");
@@ -61,11 +70,11 @@ function displayToast(data, event) {
 
 function main() {
   // Add placeholder
-  const messageContainer = document.getElementById("chat-messages");
-  const noMessage = document.createElement("p");
-  noMessage.classList.add("no-message");
-  noMessage.innerText = "Start Chatting";
-  if (!messageContainer.childNodes.length) messageContainer.append(noMessage);
+  // const messageContainer = document.getElementById("chat-messages");
+  // const noMessage = document.createElement("p");
+  // noMessage.classList.add("no-message");
+  // noMessage.innerText = "Start Chatting";
+  // if (!messageContainer.childNodes.length) messageContainer.append(noMessage);
 
   socket.onopen = () => {
     console.log("Connected to the server");

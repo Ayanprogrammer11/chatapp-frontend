@@ -10,14 +10,14 @@
 
 <body>
     <div class="toast-container"></div>
-    <p class="numClients"></p>
-    <p class="clients-names"></p>
-    <div id="input-container">
-        <input type="text" id="message-input" placeholder="Type your message here" />
-        <button id="send-button">Send</button>
+    <p class="numClients" style="display: none;"></p>
+    <p class="clients-names" style="display: none;"></p>
+    <div class="chat-messages">
     </div>
-    <div id="chat-window">
-        <div id="chat-messages"></div>
+    <div id="input-container">
+        <form action="#">
+            <input type="text" id="message-input" placeholder="Type your message here" autocomplete="off" />
+        </form>
     </div>
 
     <script src="./script.js"></script>
